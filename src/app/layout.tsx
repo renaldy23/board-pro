@@ -2,9 +2,9 @@ import '@/styles/globals.css';
 import { twMerge } from 'tailwind-merge';
 
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
+import { Rubik } from 'next/font/google';
 
-const fontSans = FontSans({ subsets: ['latin'] });
+const rubik = Rubik({ weight: ['400', '500', '600'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Nextjs Tailwindcss Starter',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={twMerge(fontSans.className)}>{children}</body>
+      <body className={twMerge(rubik.className)}>{children}</body>
     </html>
   );
 }
