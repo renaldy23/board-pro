@@ -4,7 +4,7 @@ import { HomeHeader } from '../layouts/home.header';
 
 export const Home = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-50 bg-fixed">
+    <div className="from-main-100 to-main-200 relative min-h-screen overflow-hidden bg-gradient-to-tr via-blue-100 bg-fixed">
       <HomeHeader />
       <div className="mt-[120px] flex h-[calc(100vh-120px)] justify-center gap-4">
         <div className="flex w-[400px] flex-col pt-28">

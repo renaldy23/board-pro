@@ -77,6 +77,6 @@
 
 @layer components {
   .scroll-header {
-    @apply !py-4 shadow-lg;
+    @apply bg-white !py-4 shadow-lg;
   }
 }

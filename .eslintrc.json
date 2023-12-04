@@ -29,6 +29,7 @@
         "varsIgnorePattern": "^_"
       }
     ],
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

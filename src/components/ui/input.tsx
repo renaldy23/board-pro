@@ -1,24 +1,33 @@
-import * as React from 'react';
+import React from 'react';
+import { twMerge } from 'tailwind-merge';
+import { tv, type VariantProps } from 'tailwind-variants';
 
-import { cn } from '@/utils/shad';
-
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-          className,
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
+const inputStyle = tv({
+  base: 'w-full bg-white border border-slate-200 focus:border-slate-300 focus:ring-1 focus:ring-slate-300 focus:outline-none transition duration-150 ease-in-out',
+  variants: {
+    size: {
+      sm: 'text-sm',
+      md: 'text-sm px-3 py-2',
+      lg: 'px-4 py-3 text-lg',
+    },
+    rounded: {
+      sm: 'rounded-sm',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
+      none: 'rounded-none',
+    },
   },
-);
-Input.displayName = 'Input';
+  defaultVariants: {
+    size: 'md',
+    rounded: 'md',
+  },
+});
 
-export { Input };
+type InputVariants = VariantProps<typeof inputStyle>;
+type NativeProps = React.InputHTMLAttributes<HTMLInputElement>;
+
+interface InputProps extends Omit<NativeProps, keyof InputVariants>, InputVariants {}
+
+export const Input: React.FC<InputProps> = ({ size, rounded, className, ...props }) => {
+  return <input className={twMerge(inputStyle({ size, rounded }), className)} {...props} />;
+};

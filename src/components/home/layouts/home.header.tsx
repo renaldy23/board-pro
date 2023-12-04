@@ -1,7 +1,8 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowRightCircle, AlignEndVertical } from 'lucide-react';
+import { Logo } from '@/components/ui/logo';
+import { ArrowRightCircle } from 'lucide-react';
 
 import Link from 'next/link';
 import React, { useEffect } from 'react';
@@ -27,23 +28,19 @@ export const HomeHeader = () => {
   return (
     <div
       id="header"
-      className="fixed flex w-full items-center justify-between bg-slate-50 px-20 py-10 transition-all duration-100"
+      className="fixed flex w-full items-center justify-between  px-20 py-10 transition-all duration-100"
     >
-      <div className="flex items-center gap-2">
-        <AlignEndVertical size={34} />
-        <span className="flex text-2xl">
-          <h1 className="font-medium">Board</h1>
-          <h1 className="text-zinc-600">Pro</h1>
-        </span>
-      </div>
+      <Logo iconSize={34} textSize="text-2xl" />
       <div className="flex gap-7">
         <Link href="/">Solutions</Link>
         <Link href="/">Documentation</Link>
         <Link href="/">Pricing</Link>
       </div>
-      <Button variant="main">
-        Sign In <ArrowRightCircle className="ml-2" />
-      </Button>
+      <Link href="/login">
+        <Button variant="main">
+          Sign In <ArrowRightCircle className="ml-2" />
+        </Button>
+      </Link>
     </div>
   );
 };
