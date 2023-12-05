@@ -28,6 +28,6 @@ type NativeProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 interface InputProps extends Omit<NativeProps, keyof InputVariants>, InputVariants {}
 
-export const Input: React.FC<InputProps> = ({ size, rounded, className, ...props }) => {
+export const Input: React.FC<InputProps> = ({ size, rounded, className, children, ...props }) => {
   return <input className={twMerge(inputStyle({ size, rounded }), className)} {...props} />;
 };

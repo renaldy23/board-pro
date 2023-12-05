@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge';
 
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
-import { AppContext } from '@/context/app';
+import { AppContext } from '@/context/provider/app';
 
 const rubik = Rubik({ weight: ['400', '500', '600'], subsets: ['latin'] });
 
