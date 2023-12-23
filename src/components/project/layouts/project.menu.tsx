@@ -25,7 +25,7 @@ export const ProjectMenu: React.FC<ProjectLayoutProps> = ({ className }) => {
           <FlagTriangleRight size={22} />
           Timeline
         </MenuItem>
-        <MenuItem href="/stories">
+        <MenuItem href="/backlog">
           <BookMarked size={22} />
           Backlog
         </MenuItem>
